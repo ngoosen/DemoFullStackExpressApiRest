@@ -9,14 +9,14 @@ export const getAll = async () => {
 }
 
 // // get one
-// export const getOne = async (id) => {
-// 	return await Livre.findByPk(id);
-// }
+export const getOneById = async (id) => {
+	return await Livre.findByPk(id);
+}
 
 // // Create
-// export const create = async (livre) => {
-// 	return await Livre.create(livre);
-// }
+export const create = async (livre) => {
+	return await Livre.create(livre);
+}
 
 // // Update
 

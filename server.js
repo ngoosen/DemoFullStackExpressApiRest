@@ -13,7 +13,7 @@ const start = async () => {
         await db.sequelize.authenticate();
         console.log("✅ Connexion à la base de données réussie !!!");
 
-        await db.sequelize.sync({ alter: true });
+        await db.sequelize.sync({ alter: false });
         console.log("✅ Modèles synchronisés avec succès !!!");
 
         app.listen(port, () =>
