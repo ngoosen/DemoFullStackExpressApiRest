@@ -37,3 +37,33 @@ export const create = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+
+export const update = async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const livre = await livreService.update(id, req.body);
+
+        if (typeof livre === "string") {
+            return res.status(400).json({ error: livre, });
+        }
+
+        res.status(201).end();
+    } catch (error) {
+        res.status(400).json({ error: livre, });
+    }
+};
+
+export const deleteById = async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const livre = await livreService.deleteById(id);
+
+        if (typeof livre === "string") {
+            return res.status(400).json({ error: livre, });
+        }
+
+        res.status(200).json({ message: "Livre supprimé.", });
+    } catch (error) {
+        res.status(400).json({ error: livre, });
+    }
+};

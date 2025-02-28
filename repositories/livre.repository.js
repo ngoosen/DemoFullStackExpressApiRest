@@ -19,6 +19,20 @@ export const create = async (livre) => {
 }
 
 // // Update
+export const update = async (id, data) => {
+	let livre = await Livre.findByPk(id);
+	livre.set({
+		titre: data.titre,
+		auteur: data.auteur,
+		annee: data.annee,
+	})
+
+	return await livre.save();
+};
 
 
 // // Delete
+export const deleteById = async (id) => {
+	let livre = await Livre.findByPk(id);
+	return await livre.destroy();
+};

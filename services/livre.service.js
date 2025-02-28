@@ -23,3 +23,21 @@ export const getOneById = async (id) => {
     const livre = await livreRepository.getOneById(id);
     return livre || "Livre inexistant...";
 };
+
+export const update = async (id, data) => {
+    if (isNaN(id) || id < 1) {
+        return "Id invalide";
+    }
+
+    const livre = await livreRepository.update(id, data);
+    return livre || "Livre inexistant";
+};
+
+export const deleteById = async (id) => {
+    if (isNaN(id) || id < 1) {
+        return "Id invalide";
+    }
+
+    const deletedRow = await livreRepository.deleteById(id);
+    return deletedRow || "Livre inexistant";
+}
